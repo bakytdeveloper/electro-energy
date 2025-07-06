@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
-import { Button } from '../ui'
+import Button from "../ui/Button";
+// import { Button } from '../ui'
 
 const HeroContainer = styled.section`
   height: 100vh;

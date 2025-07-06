@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
-import { LightningCharge, Cpu, Transmission, Diagram3 } from 'react-bootstrap-icons'
+import { LightningCharge, Cpu, Gear, Diagram3 } from 'react-bootstrap-icons'
 
 const services = [
     {
@@ -14,7 +14,7 @@ const services = [
         desc: "Пуско-наладочные работы любой сложности"
     },
     {
-        icon: <Transmission size={40} />,
+        icon: <Gear size={40} />,
         title: "ЛЭП и подстанции",
         desc: "Строительство линий электропередач"
     },

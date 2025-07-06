@@ -38,6 +38,20 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
+  /* Добавьте после body */
+  h1, h2, h3, h4, h5, h6 {
+    background: linear-gradient(90deg, #fff, var(--primary));
+    -webkit-background-clip: text;
+    //background-clip: text;
+    color: transparent;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    opacity: 0.9;
+    line-height: 1.6;
+  }
+
   a {
     text-decoration: none;
     color: inherit;

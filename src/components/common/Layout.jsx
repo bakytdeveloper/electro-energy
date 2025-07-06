@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom'
 import styled from 'styled-components'
 import Navbar from './Navbar'
-import Footer from './Footer'
+// import Footer from './Footer'
 
 const LayoutContainer = styled.div`
   display: flex;
@@ -35,7 +35,7 @@ export default function Layout() {
             <MainContent>
                 <Outlet />
             </MainContent>
-            <Footer />
+            {/*<Footer />*/}
         </LayoutContainer>
     )
 }

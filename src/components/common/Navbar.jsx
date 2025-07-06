@@ -1,7 +1,9 @@
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
-import { motion } from 'framer-motion'
-import { LightningChargeFill } from 'react-icons/bs'
+import { motion, AnimatePresence } from 'framer-motion'
+import { BsLightningChargeFill } from 'react-icons/bs'
+import { List, X } from 'react-bootstrap-icons' // Исправленный импорт
+import { useState } from 'react'
 
 const Nav = styled.nav`
   background: rgba(10, 10, 26, 0.8);
@@ -42,7 +44,7 @@ const NavItems = styled.ul`
   list-style: none;
 
   @media (max-width: 768px) {
-    display: none; /* Пока скроем, потом сделаем бургер-меню */
+    display: none;
   }
 `
 
@@ -81,12 +83,43 @@ const StyledLink = styled(NavLink)`
   }
 `
 
+const MobileMenuButton = styled(motion.button)`
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  padding: 0.5rem;
+  display: none;
+  z-index: 1000;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+`
+
+const MobileMenu = styled(motion.div)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--darker);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  z-index: 999;
+`
+
 export default function Navbar() {
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
+
     return (
         <Nav>
             <NavContainer>
                 <Logo>
-                    <LightningChargeFill size={24} />
+                    <BsLightningChargeFill size={24} />
                     <span>ElectroEnergy</span>
                 </Logo>
 
@@ -105,7 +138,27 @@ export default function Navbar() {
                     </NavItem>
                 </NavItems>
 
-                {/* Пока оставим место для мобильного меню */}
+                <MobileMenuButton
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    whileTap={{ scale: 0.9 }}
+                >
+                    {isMenuOpen ? <X size={24} /> : <List size={24} />}
+                </MobileMenuButton>
+
+                <AnimatePresence>
+                    {isMenuOpen && (
+                        <MobileMenu
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                        >
+                            <StyledLink to="/" onClick={() => setIsMenuOpen(false)}>Главная</StyledLink>
+                            <StyledLink to="/services" onClick={() => setIsMenuOpen(false)}>Услуги</StyledLink>
+                            <StyledLink to="/projects" onClick={() => setIsMenuOpen(false)}>Проекты</StyledLink>
+                            <StyledLink to="/contacts" onClick={() => setIsMenuOpen(false)}>Контакты</StyledLink>
+                        </MobileMenu>
+                    )}
+                </AnimatePresence>
             </NavContainer>
         </Nav>
     )

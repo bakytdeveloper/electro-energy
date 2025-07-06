@@ -1,20 +1,21 @@
 import { Routes, Route } from 'react-router-dom'
-import HomePage from '../pages/HomePage'
-import ServicesPage from '../pages/ServicesPage'
-import ProjectsPage from '../pages/ProjectsPage'
-import ContactsPage from '../pages/ContactsPage'
+// import HomePage from '../pages/HomePage'
+// import ServicesPage from '../pages/ServicesPage'
+// import ProjectsPage from '../pages/ProjectsPage'
+// import ContactsPage from '../pages/ContactsPage'
 import Layout from '../components/common/Layout'
-import NotFoundPage from '../pages/NotFoundPage'
+import HomePage from "../pages/HomePage";
+// import NotFoundPage from '../pages/NotFoundPage'
 
 function AppRoutes() {
     return (
         <Routes>
             <Route path="/" element={<Layout />}>
                 <Route index element={<HomePage />} />
-                <Route path="services" element={<ServicesPage />} />
-                <Route path="projects" element={<ProjectsPage />} />
-                <Route path="contacts" element={<ContactsPage />} />
-                <Route path="*" element={<NotFoundPage />} />
+                {/*<Route path="services" element={<ServicesPage />} />*/}
+                {/*<Route path="projects" element={<ProjectsPage />} />*/}
+                {/*<Route path="contacts" element={<ContactsPage />} />*/}
+                {/*<Route path="*" element={<NotFoundPage />} />*/}
             </Route>
         </Routes>
     )

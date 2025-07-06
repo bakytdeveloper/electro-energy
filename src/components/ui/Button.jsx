@@ -43,6 +43,30 @@ const StyledButton = styled(motion.button)`
   }
 `
 
+const ElectricEffect = styled(motion.div)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 240, 255, 0.3),
+    transparent
+  );
+  transform: translateX(-100%);
+`;
+
+
 export default function Button({ children, ...props }) {
-    return <StyledButton {...props}>{children}</StyledButton>
+    return <StyledButton {...props}>
+        {children}
+        {props.withEffect && (
+            <ElectricEffect
+                animate={{ x: ['-100%', '100%'] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+            />
+        )}
+    </StyledButton>
 }
