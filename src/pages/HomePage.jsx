@@ -9,19 +9,19 @@ import Loader from '../components/ui/Loader';
 // Добавляем массив equipmentItems перед компонентом
 const equipmentItems = [
     {
-        image: '/public/assets/images/project-img4.jpg',
+        image: '/assets/images/project-img4.jpg',
         title: 'Трансформатор 110 кВ'
     },
     {
-        image: '/public/assets/images/project-img3.jpg',
+        image: '/assets/images/project-img3.jpg',
         title: 'Трансформатор 110 кВ'
     },
     {
-        image: '/public/assets/images/project-img.jpg',
+        image: '/assets/images/project-img.jpg',
         title: 'Генератор 50 МВт'
     },
     {
-        image: '/public/assets/images/project-img5.jpg',
+        image: '/assets/images/project-img5.jpg',
         title: 'Распределительное устройство'
     }
 ];

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import imageUrl from '../../../public/assets/images/project-img.jpg';
+import imageUrl from '/assets/images/project-img.jpg';
 import ImageLoader from '../ui/ImageLoader';
 
 const Card = styled(motion.div)`
@@ -69,7 +69,7 @@ export default function ProjectCard({ title, description }) {
 
             <ImageContainer>
                 <ImageLoader
-                    src={imageUrl || '/src/assets/images/project-placeholder.jpg'}
+                    src={imageUrl || '/assets/images/project-img.jpg'}
                     alt={title}
                 />
             </ImageContainer>

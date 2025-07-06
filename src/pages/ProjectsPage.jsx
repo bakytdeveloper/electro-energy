@@ -14,10 +14,38 @@ const projects = [
     }
 ];
 
+
+const HeroContainer = styled.div`
+  display: flex;
+  align-items: center;
+  min-height: 60vh; /* Фиксированная высота для мобильных */
+
+  @media (max-width: 768px) {
+    min-height: 50vh;
+    padding: 20px 0;
+  }
+`;
+
+const ProjectsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  
+  @media (max-width: 768px) {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+`;
+
 export default function ProjectsPage() {
     return (
         <>
-            <HeroSection title="Наши проекты" />
+            <HeroContainer>
+                <HeroSection title="Наши проекты" />
+            </HeroContainer>
             <ProjectsGrid>
                 {projects.map((project, index) => (
                     <ProjectCard key={index} {...project} />
@@ -27,12 +55,3 @@ export default function ProjectsPage() {
         </>
     )
 }
-
-const ProjectsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-`;

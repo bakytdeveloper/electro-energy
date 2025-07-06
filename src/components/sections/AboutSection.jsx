@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-// import { Bolt, ShieldCheck, Cog } from 'react-bootstrap-icons';
 import { BsLightningChargeFill, BsShieldCheck, BsGearFill } from 'react-icons/bs';
 import {Diagram3} from "react-bootstrap-icons";
 

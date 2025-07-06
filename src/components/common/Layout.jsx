@@ -14,6 +14,7 @@ const MainContent = styled.main`
   padding: 2rem;
   position: relative;
   overflow: hidden;
+  //background: red;
 
   &::before {
     content: '';
@@ -25,6 +26,13 @@ const MainContent = styled.main`
     background: radial-gradient(circle at 20% 30%, rgba(0, 240, 255, 0.1) 0%, transparent 40%);
     pointer-events: none;
     z-index: -1;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
   }
 `
 

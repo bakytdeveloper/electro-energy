@@ -10,6 +10,22 @@ const HeroContainer = styled.section`
   position: relative;
   overflow: hidden;
   isolation: isolate;
+  padding: 0 20px;
+
+  /* Мобильная адаптация */
+  @media (max-width: 768px) {
+    height: 60vh;
+    min-height: 500px;
+    align-items: flex-start;
+    padding-top: 10vh;
+    margin-bottom: 20px;
+    
+  }
+
+  @media (max-width: 480px) {
+    min-height: 400px;
+    padding-top: 5vh;
+  }
 
   /* Видео-фон */
   video {
@@ -34,29 +50,38 @@ const HeroContainer = styled.section`
 
 const HeroContent = styled.div`
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   padding: 2rem;
   z-index: 2;
   position: relative;
 
   @media (max-width: 768px) {
-    padding: 1rem;
+    padding: 1.5rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem;
   }
 `
 
 const Title = styled(motion.h1)`
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-size: clamp(2rem, 5vw, 4.5rem);
   margin-bottom: 1.5rem;
   background: linear-gradient(90deg, #fff, var(--primary), var(--secondary));
   -webkit-background-clip: text;
-  //background-clip: text;
+  background-clip: text;
   color: transparent;
-  line-height: 1.1;
+  line-height: 1.2;
   letter-spacing: 1px;
   text-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
   position: relative;
   display: inline-block;
+  word-break: keep-all;
 
   &::after {
     content: '';
@@ -71,20 +96,37 @@ const Title = styled(motion.h1)`
 
   @media (max-width: 768px) {
     margin-bottom: 1rem;
+    line-height: 1.3;
+    br {
+      display: none; /* Убираем переносы на мобильных */
+    }
+  }
+
+  @media (max-width: 480px) {
+    font-size: clamp(1.8rem, 8vw, 3rem);
   }
 `
 
 const Subtitle = styled(motion.p)`
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-size: clamp(0.95rem, 1.5vw, 1.2rem);
   margin-bottom: 2.5rem;
   max-width: 600px;
   opacity: 0.9;
   line-height: 1.6;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  word-break: normal;
 
   @media (max-width: 768px) {
-    max-width: 100%;
+    max-width: 90%;
     margin-bottom: 2rem;
+    padding: 0 10px;
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.95rem;
+    max-width: 100%;
   }
 `
 
@@ -96,6 +138,12 @@ const EnergyPulse = styled(motion.div)`
   border-radius: 50%;
   filter: blur(40px);
   z-index: -1;
+
+  @media (max-width: 768px) {
+    filter: blur(30px);
+    width: min(90vw, 400px);
+    height: min(90vw, 400px);
+  }
 `
 
 const FloatingGrid = styled.div`
@@ -108,6 +156,10 @@ const FloatingGrid = styled.div`
   background-size: 50px 50px;
   z-index: -1;
   opacity: 0.5;
+
+  @media (max-width: 768px) {
+    background-size: 30px 30px;
+  }
 `
 
 const EnergyBeam = styled(motion.div)`
@@ -119,15 +171,18 @@ const EnergyBeam = styled(motion.div)`
   background: linear-gradient(to top, rgba(0, 240, 255, 0.1), transparent);
   clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 90% 0%, 85% 100%, 15% 100%, 10% 0%, 0% 0%);
   z-index: -1;
+
+  @media (max-width: 768px) {
+    height: 60px;
+  }
 `
 
 export default function HeroSection() {
     return (
         <HeroContainer>
-            {/* Видео-фон с фолбеком */}
             <video autoPlay muted loop playsInline>
-                <source src="/public/assets/videos/energy-background.mp4" type="video/mp4" />
-                <img src="/public/assets/images/project-img2.jpg" alt="Энергетические системы" />
+                <source src="/assets/videos/energy-background.mp4" type="video/mp4" />
+                <img src="/assets/images/project-img2.jpg" alt="Энергетические системы" />
             </video>
 
             <FloatingGrid />
@@ -157,7 +212,7 @@ export default function HeroSection() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: "backOut" }}
                 >
-                    Энергетические<br />решения будущего
+                    Энергетические решения будущего
                 </Title>
 
                 <Subtitle
