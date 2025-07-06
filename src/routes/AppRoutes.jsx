@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom'
 // import ContactsPage from '../pages/ContactsPage'
 import Layout from '../components/common/Layout'
 import HomePage from "../pages/HomePage";
+import ProjectsPage from "../pages/ProjectsPage";
 // import NotFoundPage from '../pages/NotFoundPage'
 
 function AppRoutes() {
@@ -13,7 +14,7 @@ function AppRoutes() {
             <Route path="/" element={<Layout />}>
                 <Route index element={<HomePage />} />
                 {/*<Route path="services" element={<ServicesPage />} />*/}
-                {/*<Route path="projects" element={<ProjectsPage />} />*/}
+                <Route path="projects" element={<ProjectsPage />} />
                 {/*<Route path="contacts" element={<ContactsPage />} />*/}
                 {/*<Route path="*" element={<NotFoundPage />} />*/}
             </Route>

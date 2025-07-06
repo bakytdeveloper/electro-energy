@@ -1,19 +1,40 @@
-import { useEffect } from 'react'
-import HeroSection from '../components/sections/HeroSection'
-import ServicesSection from '../components/sections/ServicesSection'
-import EnergyWave from '../components/ui/EnergyWave'
-import Loader from '../components/ui/Loader'
-import { useState } from 'react'
+import HeroSection from '../components/sections/HeroSection';
+import ServicesSection from '../components/sections/ServicesSection';
+import EquipmentGallery from '../components/sections/EquipmentGallery';
+import AboutSection from '../components/sections/AboutSection'; // Добавляем импорт
+import EnergyWave from '../components/ui/EnergyWave';
+import { useEffect, useState } from 'react';
+import Loader from '../components/ui/Loader';
+
+// Добавляем массив equipmentItems перед компонентом
+const equipmentItems = [
+    {
+        image: '/public/assets/images/project-img4.jpg',
+        title: 'Трансформатор 110 кВ'
+    },
+    {
+        image: '/public/assets/images/project-img3.jpg',
+        title: 'Трансформатор 110 кВ'
+    },
+    {
+        image: '/public/assets/images/project-img.jpg',
+        title: 'Генератор 50 МВт'
+    },
+    {
+        image: '/public/assets/images/project-img5.jpg',
+        title: 'Распределительное устройство'
+    }
+];
 
 export default function HomePage() {
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const timer = setTimeout(() => setLoading(false), 1500)
-        return () => clearTimeout(timer)
-    }, [])
+        const timer = setTimeout(() => setLoading(false), 1500);
+        return () => clearTimeout(timer);
+    }, []);
 
-    if (loading) return <Loader />
+    if (loading) return <Loader />;
 
     return (
         <>
@@ -21,6 +42,9 @@ export default function HomePage() {
             <EnergyWave />
             <ServicesSection />
             <EnergyWave inverted />
+            <AboutSection />
+            <EnergyWave />
+            <EquipmentGallery items={equipmentItems} />
         </>
-    )
+    );
 }

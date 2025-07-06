@@ -120,7 +120,8 @@ export default function Navbar() {
             <NavContainer>
                 <Logo>
                     <BsLightningChargeFill size={24} />
-                    <span>ElectroEnergy</span>
+                    <span>ОсОО Энерго-Экспресс</span>
+                {/*    */}
                 </Logo>
 
                 <NavItems>

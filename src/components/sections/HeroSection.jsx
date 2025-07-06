@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import Button from "../ui/Button";
-// import { Button } from '../ui'
 
 const HeroContainer = styled.section`
   height: 100vh;
@@ -11,6 +10,18 @@ const HeroContainer = styled.section`
   position: relative;
   overflow: hidden;
   isolation: isolate;
+
+  /* Видео-фон */
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    opacity: 0.4;
+  }
 
   &::before {
     content: '';
@@ -39,7 +50,7 @@ const Title = styled(motion.h1)`
   margin-bottom: 1.5rem;
   background: linear-gradient(90deg, #fff, var(--primary), var(--secondary));
   -webkit-background-clip: text;
-  background-clip: text;
+  //background-clip: text;
   color: transparent;
   line-height: 1.1;
   letter-spacing: 1px;
@@ -91,9 +102,9 @@ const FloatingGrid = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  background-image: 
-    linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+  background-image:
+          linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
   background-size: 50px 50px;
   z-index: -1;
   opacity: 0.5;
@@ -113,6 +124,12 @@ const EnergyBeam = styled(motion.div)`
 export default function HeroSection() {
     return (
         <HeroContainer>
+            {/* Видео-фон с фолбеком */}
+            <video autoPlay muted loop playsInline>
+                <source src="/public/assets/videos/energy-background.mp4" type="video/mp4" />
+                <img src="/public/assets/images/project-img2.jpg" alt="Энергетические системы" />
+            </video>
+
             <FloatingGrid />
 
             <EnergyPulse
