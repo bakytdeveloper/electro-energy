@@ -17,12 +17,12 @@ const equipmentItems = [
         title: 'Трансформатор 110 кВ'
     },
     {
-        image: '/assets/images/project-img.jpg',
+        image: '/assets/images/project-img5.jpg',
         title: 'Генератор 50 МВт'
     },
     {
-        image: '/assets/images/project-img5.jpg',
-        title: 'Распределительное устройство'
+        image: '/assets/images/project-img2.jpg',
+        title: 'Отладка сетей'
     }
 ];
 

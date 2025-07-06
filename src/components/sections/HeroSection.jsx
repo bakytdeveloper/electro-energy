@@ -7,10 +7,12 @@ const HeroContainer = styled.section`
   min-height: 800px;
   display: flex;
   align-items: center;
+  justify-content: center; /* Добавлено для центрирования */
   position: relative;
   overflow: hidden;
   isolation: isolate;
   padding: 0 20px;
+  width: 100%; /* Явное указание ширины */
 
   /* Мобильная адаптация */
   @media (max-width: 768px) {
@@ -19,7 +21,6 @@ const HeroContainer = styled.section`
     align-items: flex-start;
     padding-top: 10vh;
     margin-bottom: 20px;
-    
   }
 
   @media (max-width: 480px) {
@@ -36,14 +37,14 @@ const HeroContainer = styled.section`
     height: 100%;
     object-fit: cover;
     z-index: -2;
-    opacity: 0.4;
+    opacity: 0.6;
   }
 
   &::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 75% 30%, rgba(0, 240, 255, 0.1) 0%, transparent 40%);
+    background: radial-gradient(circle at center 30%, rgba(0, 240, 255, 0.1) 0%, transparent 50%); /* Центрируем градиент */
     z-index: -1;
   }
 `
@@ -55,6 +56,7 @@ const HeroContent = styled.div`
   padding: 2rem;
   z-index: 2;
   position: relative;
+  box-sizing: border-box; /* Важно для правильного расчета ширины */
 
   @media (max-width: 768px) {
     padding: 1.5rem;
@@ -82,6 +84,7 @@ const Title = styled(motion.h1)`
   position: relative;
   display: inline-block;
   word-break: keep-all;
+  max-width: 100%; /* Ограничиваем ширину */
 
   &::after {
     content: '';
@@ -98,7 +101,7 @@ const Title = styled(motion.h1)`
     margin-bottom: 1rem;
     line-height: 1.3;
     br {
-      display: none; /* Убираем переносы на мобильных */
+      display: none;
     }
   }
 

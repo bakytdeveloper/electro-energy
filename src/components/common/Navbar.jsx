@@ -244,6 +244,8 @@ const StyledLink = styled(NavLink)`
   padding: 0.5rem 0;
   font-weight: 500;
   transition: all 0.3s ease;
+  font-size: 25px;
+  
 
   &::after {
     content: '';
@@ -263,7 +265,7 @@ const StyledLink = styled(NavLink)`
   &.active {
     color: var(--primary);
     text-shadow: var(--neon-glow);
-
+    
     &::after {
       width: 100%;
     }
