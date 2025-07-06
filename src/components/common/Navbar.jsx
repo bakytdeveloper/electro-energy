@@ -244,7 +244,7 @@ const StyledLink = styled(NavLink)`
   padding: 0.5rem 0;
   font-weight: 500;
   transition: all 0.3s ease;
-  font-size: 25px;
+  
   
 
   &::after {
@@ -258,6 +258,10 @@ const StyledLink = styled(NavLink)`
     transition: width 0.3s ease;
   }
 
+  @media (max-width: 768px) {
+    font-size: 22px;
+  }
+  
   &:hover::after {
     width: 100%;
   }
